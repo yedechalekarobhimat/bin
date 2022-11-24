@@ -1,0 +1,16 @@
+db.createCollection("employee");
+db.employee.insert({"id":1,"name":"C++"});
+db.employee.insert({"id":2,"name":"Java"});
+db.employee.insert({"id":3,"name":"Python"});
+db.employee.find();
+db.employee.update({"name":"Python"},{$set:{"name":"Python.3.7"}})
+db.employee.find();
+db.employee.remove({"id":1});
+db.employee.find();
+db.employee.find({"name":"Java"});
+db.employee.insert({"id":4,"name":"Java","desc":"dummy" });
+db.employee.find({$and:[{"name":"Java"},{"desc":"dummy"}]});
+db.employee.find({$or:[{"name":"Java"},{"desc":"dummy"}]});
+db.employee.find({"bid":{$in:[1,3]}})
+db.employee.find({"bid":{$nin:[1,3]}})
+db.employee.save({"_id":ObjectId("123456789abcdef123456789"),"bid":6,"name":"save query","cost":1000})
